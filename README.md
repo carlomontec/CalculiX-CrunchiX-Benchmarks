@@ -25,6 +25,7 @@ chosen to stress the solvers, not to show what CalculiX can model.
 
 | Date | Report | Result |
 |:---|:---|:---|
+| 2026-11-23 | [Release v2.24-multisolver-0.2: equivalence with official CalculiX 2.24](releases/v2.24-multisolver-0.2/equivalence/REPORT.md) | SPOOLES, 1 thread: all 642 decks of the official test suite give byte-identical .dat and .frd results to plain 2.24. MUMPS 629/642 and PARDISO 627/642 identical or within tolerance; the rest are explained. |
 
 ### Benchmarks
 
