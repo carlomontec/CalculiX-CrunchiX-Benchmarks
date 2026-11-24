@@ -1,0 +1,7 @@
+{
+  "kind": "study",
+  "title": "conda-forge CalculiX feedstock compared with the MultiSolver edition",
+  "date": "2026-11",
+  "author": "Carlo Monjaraz-Tec",
+  "summary": "How the conda-forge package builds and tests ccx, compared with this fork's build and test approach."
+}

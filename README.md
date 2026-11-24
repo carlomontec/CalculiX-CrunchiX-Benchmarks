@@ -52,6 +52,8 @@ Fastest wall time per solver over all thread counts, in seconds. Follow the link
 
 | Date | Study | Summary |
 |:---|:---|:---|
+| 2026-11 | [conda-forge CalculiX feedstock compared with the MultiSolver edition](studies/conda-feedstock/) | How the conda-forge package builds and tests ccx, compared with this fork's build and test approach. |
+| 2026-08 | [Apple Accelerate sparse direct solver in CalculiX on macOS](studies/accelerate/) | Integration of Apple's Accelerate sparse direct solver into ccx and its performance on Apple Silicon. |
 
 <!-- index:end -->
 

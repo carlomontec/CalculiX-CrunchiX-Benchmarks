@@ -1,0 +1,7 @@
+{
+  "kind": "study",
+  "title": "Apple Accelerate sparse direct solver in CalculiX on macOS",
+  "date": "2026-08",
+  "author": "Carlo Monjaraz-Tec",
+  "summary": "Integration of Apple's Accelerate sparse direct solver into ccx and its performance on Apple Silicon."
+}
