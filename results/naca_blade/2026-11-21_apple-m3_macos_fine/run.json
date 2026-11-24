@@ -1,0 +1,49 @@
+{
+  "kind": "benchmark",
+  "title": "NACA blade, fine mesh, Apple M3, macOS",
+  "date": "2026-11-21",
+  "timestamp_utc": "2026-11-21T22:02:15Z",
+  "code": {
+    "repository": "https://github.com/carlomontec/CalculiX-CrunchiX-MultiSolver",
+    "ref": "main",
+    "commit": null,
+    "version": "2.24 base (development build)",
+    "note": "main after the merge of upstream 2.24 (da88f2f, 2026-11-20); exact commit not recorded at run time"
+  },
+  "machine": {
+    "label": "apple-m3_macos",
+    "cpu": "Apple M3 (4 performance + 4 efficiency cores)",
+    "cores": 8,
+    "ram_gb": 16,
+    "os": "macOS",
+    "compiler": null
+  },
+  "build": null,
+  "model": {
+    "name": "naca_blade",
+    "deck": "blade_static",
+    "analysis": "linear static",
+    "mesh": "fine",
+    "nodes": 212475,
+    "elements": 48576,
+    "equations": 632316,
+    "source": "models/naca_blade"
+  },
+  "solvers": [
+    "ACCELERATE",
+    "MUMPS",
+    "SPOOLES"
+  ],
+  "threads": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "command": null,
+  "notes": [
+    "ACCELERATE and SPOOLES results from initial 2026-11-21 23:02 run; MUMPS results replaced with clean 1/2/4/8T re-run.",
+    "Build options and command were not recorded at run time.",
+    "SPOOLES with several threads (multithreaded SPOOLES, USE_MT) deviates from the other solvers and from SPOOLES on 1 thread: 2 threads: 1.1 %, 8 threads: 0.48 %. All other entries agree to about 1e-8."
+  ]
+}

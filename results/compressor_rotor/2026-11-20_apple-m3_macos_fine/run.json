@@ -1,0 +1,47 @@
+{
+  "kind": "benchmark",
+  "title": "Compressor rotor, fine mesh, Apple M3, macOS",
+  "date": "2026-11-20",
+  "timestamp_utc": "2026-11-20T16:12:47Z",
+  "code": {
+    "repository": "https://github.com/carlomontec/CalculiX-CrunchiX-MultiSolver",
+    "ref": "main",
+    "commit": null,
+    "version": "2.24 base (development build)",
+    "note": "main after the merge of upstream 2.24 (da88f2f, 2026-11-20); exact commit not recorded at run time"
+  },
+  "machine": {
+    "label": "apple-m3_macos",
+    "cpu": "Apple M3 (4 performance + 4 efficiency cores)",
+    "cores": 8,
+    "ram_gb": 16,
+    "os": "macOS",
+    "compiler": null
+  },
+  "build": null,
+  "model": {
+    "name": "compressor_rotor",
+    "deck": "lavffcyc",
+    "analysis": "centrifugal preload + cyclic-symmetric frequency",
+    "mesh": "fine",
+    "nodes": 48909,
+    "elements": 10816,
+    "equations": 283024,
+    "source": "models/compressor_rotor"
+  },
+  "solvers": [
+    "ACCELERATE",
+    "MUMPS",
+    "SPOOLES"
+  ],
+  "threads": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "command": null,
+  "notes": [
+    "Build options and command were not recorded at run time."
+  ]
+}

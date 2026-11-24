@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-24T10:05:27Z",
+    "system_profile": {
+      "hostname": "ryzen5-5600_linux",
+      "os": "Linux",
+      "architecture": "x86_64",
+      "cpu_name": "AMD Ryzen 5 5600 6-Core Processor",
+      "total_cores": 12,
+      "p_cores": 12,
+      "total_ram_gb": 31.3
+    },
+    "case": "naca_blade",
+    "deck": "blade_static",
+    "discretization": "ultra_fine",
+    "nodes": 240505,
+    "elements": 55296,
+    "equations": 715968
+  },
+  "results": {
+    "MUMPS": {
+      "6": {
+        "success": true,
+        "wall_time": 52.6034,
+        "measured_time": 52.6588,
+        "peak_rss_mb": 14539.43,
+        "equations": 715968,
+        "nodes": 240505,
+        "elements": 55296,
+        "total_effective_mass": {},
+        "fraction_of_totals": {},
+        "static_verification": {
+          "converged": true,
+          "tip_u1_mean": -1.8412633938600864,
+          "tip_u2_min": 5.1246402275,
+          "tip_u2_mean": 5.231126348476798,
+          "tip_u2_max": 5.3512938403,
+          "tip_umag_max": 5.709799030529369
+        }
+      }
+    },
+    "PARDISO": {
+      "6": {
+        "success": true,
+        "wall_time": 59.4528,
+        "measured_time": 59.5185,
+        "peak_rss_mb": 14548.64,
+        "equations": 715968,
+        "nodes": 240505,
+        "elements": 55296,
+        "total_effective_mass": {},
+        "fraction_of_totals": {},
+        "static_verification": {
+          "converged": true,
+          "tip_u1_mean": -1.8412634063474311,
+          "tip_u2_min": 5.1246402614,
+          "tip_u2_mean": 5.231126385328988,
+          "tip_u2_max": 5.3512938804,
+          "tip_umag_max": 5.709799073584173
+        }
+      }
+    },
+    "SPOOLES": {
+      "6": {
+        "success": true,
+        "wall_time": 252.5769,
+        "measured_time": 252.7845,
+        "peak_rss_mb": 24848.04,
+        "equations": 715968,
+        "nodes": 240505,
+        "elements": 55296,
+        "total_effective_mass": {},
+        "fraction_of_totals": {},
+        "static_verification": {
+          "converged": true,
+          "tip_u1_mean": -1.8412634041315847,
+          "tip_u2_min": 5.1246402557,
+          "tip_u2_mean": 5.231126379174527,
+          "tip_u2_max": 5.3512938738,
+          "tip_umag_max": 5.709799066376589
+        }
+      }
+    }
+  }
+}

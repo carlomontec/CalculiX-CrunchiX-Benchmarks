@@ -1,0 +1,48 @@
+{
+  "kind": "benchmark",
+  "title": "NACA blade, fine mesh, AMD Ryzen 5 5600, Windows",
+  "date": "2026-11-21",
+  "timestamp_utc": "2026-11-21T23:49:38Z",
+  "code": {
+    "repository": "https://github.com/carlomontec/CalculiX-CrunchiX-MultiSolver",
+    "ref": "main",
+    "commit": null,
+    "version": "2.24 base (development build)",
+    "note": "main after the merge of upstream 2.24 (da88f2f, 2026-11-20); exact commit not recorded at run time"
+  },
+  "machine": {
+    "label": "ryzen5-5600_windows",
+    "cpu": "AMD Ryzen 5 5600 (6 cores, 12 threads)",
+    "cores": 12,
+    "ram_gb": 32,
+    "os": "Windows",
+    "compiler": null
+  },
+  "build": null,
+  "model": {
+    "name": "naca_blade",
+    "deck": "blade_static",
+    "analysis": "linear static",
+    "mesh": "fine",
+    "nodes": 212475,
+    "elements": 48576,
+    "equations": 632316,
+    "source": "models/naca_blade"
+  },
+  "solvers": [
+    "MUMPS",
+    "SPOOLES",
+    "PARDISO"
+  ],
+  "threads": [
+    1,
+    2,
+    6,
+    12
+  ],
+  "command": null,
+  "notes": [
+    "Build options and command were not recorded at run time.",
+    "SPOOLES with several threads (multithreaded SPOOLES, USE_MT) deviates from the other solvers and from SPOOLES on 1 thread: 12 threads: 0.018 %. All other entries agree to about 1e-8."
+  ]
+}

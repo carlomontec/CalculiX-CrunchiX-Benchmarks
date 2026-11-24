@@ -31,8 +31,15 @@ chosen to stress the solvers, not to show what CalculiX can model.
 
 Fastest wall time per solver over all thread counts, in seconds. Follow the link for timings per thread count, memory and result agreement.
 
-| Date | Model | Equations | Machine |  |
-|:---|:---|---:|:---|
+| Date | Model | Equations | Machine | MUMPS | PARDISO | ACCELERATE | SPOOLES |
+|:---|:---|---:|:---|---:|---:|---:|---:|
+| 2026-11-24 | [naca_blade, ultra-fine](results/naca_blade/2026-11-24_ryzen5-5600_linux_ultra-fine/) | 715,968 | ryzen5-5600_linux | 52.6 | 59.5 |  | 252.6 |
+| 2026-11-21 | [naca_blade, fine](results/naca_blade/2026-11-21_ryzen5-5600_windows_fine/) | 632,316 | ryzen5-5600_windows | 56.0 | 70.4 |  | 198.0 |
+| 2026-11-21 | [naca_blade, fine](results/naca_blade/2026-11-21_ryzen5-5600_linux_fine/) | 632,316 | ryzen5-5600_linux | 47.3 | 48.3 |  | 186.7 |
+| 2026-11-21 | [naca_blade, fine](results/naca_blade/2026-11-21_apple-m3_macos_fine/) | 632,316 | apple-m3_macos | 60.0 |  | 41.8 | 315.7 |
+| 2026-11-20 | [compressor_rotor, fine](results/compressor_rotor/2026-11-20_ryzen5-5600_windows_fine/) | 283,024 | ryzen5-5600_windows | 115.5 | 126.1 |  | 254.4 |
+| 2026-11-20 | [compressor_rotor, fine](results/compressor_rotor/2026-11-20_ryzen5-5600_linux_fine/) | 283,024 | ryzen5-5600_linux | 76.2 | 85.2 |  | 208.8 |
+| 2026-11-20 | [compressor_rotor, fine](results/compressor_rotor/2026-11-20_apple-m3_macos_fine/) | 283,024 | apple-m3_macos | 59.7 |  | 59.0 | 204.5 |
 
 ### Other reports
 
