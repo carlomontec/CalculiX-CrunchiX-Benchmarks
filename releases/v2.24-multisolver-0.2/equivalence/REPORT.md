@@ -27,12 +27,14 @@ Dhondt's `datcheck.pl` / `frdcheck.pl` accept them (0.1 % of the block maximum).
 | Run | Identical | Within tol. | Diff | Exit code differs |
 |:---|---:|---:|---:|---:|
 | `OMP_NUM_THREADS=1` | **642** | 0 | 0 | 0 |
-| `OMP_NUM_THREADS=4`, this edition **with** `USE_MT` (current CMake default) | 328 | 255 | 58 | 1 |
+| `OMP_NUM_THREADS=4`, this edition **with** `USE_MT` (CMake default) | 328 | 255 | 58 | 1 |
 | `OMP_NUM_THREADS=4`, this edition **without** `USE_MT` | **635** | 7 | 0 | 0 |
 | `OMP_NUM_THREADS=4`, release build (`USE_MT`) with `CCX_NPROC_EQUATION_SOLVER=1` | **635** | 6 | 1 | 0 |
+| `OMP_NUM_THREADS=4`, release build with `CCX_SPOOLES_MT=OFF` | **635** | 7 | 0 | 0 |
 
 CSV files: `linux_spooles_omp1.csv`, `linux_spooles_omp4_useMT.csv`,
-`linux_spooles_omp4_noMT.csv`, `linux_spooles_omp4_solver1.csv`.
+`linux_spooles_omp4_noMT.csv`, `linux_spooles_omp4_solver1.csv`,
+`linux_spooles_omp4_spoolesmt_off.csv`.
 
 ### Findings
 
@@ -44,8 +46,8 @@ CSV files: `linux_spooles_omp1.csv`, `linux_spooles_omp4_useMT.csv`,
    18 decks end with a non-zero exit code (e.g. 201, 16) in **both** binaries:
    these are upstream's intentional error-checking decks.
 
-2. **`USE_MT` makes SPOOLES non-deterministic with more than one thread.**
-   This edition's `CMakeLists.txt` defines `USE_MT=1`. That enables SPOOLES'
+2. **`USE_MT` makes SPOOLES non-deterministic with more than one thread, and its results differ from single-threaded ones.**
+   This edition's `CMakeLists.txt` defines `USE_MT=1` by default (option `CCX_SPOOLES_MT`). That enables SPOOLES'
    multithreaded factorization and solve in `src/spooles.c` (the only file that
    uses `USE_MT`). Upstream's default `Makefile` and upstream's CMake do **not**
    define it; only upstream's `Makefile_MT` does. With 4 threads, `beamf3` and
@@ -61,15 +63,34 @@ CSV files: `linux_spooles_omp1.csv`, `linux_spooles_omp4_useMT.csv`,
    So this is how SPOOLES behaves in multithreaded mode, not a defect in this
    edition's code.
 
-   **Decision (2026-11-23): `USE_MT` stays on** (multithreaded SPOOLES, as in
-   upstream's `Makefile_MT`). It is documented as a known behaviour in
-   `INSTALL.md` ("SPOOLES and multithreading"), `README.md` and
-   `docs/CHANGES_VS_CCX.md`, together with the note that SPOOLES is not
-   recommended in this edition. For reproducible SPOOLES results identical to
-   2.24, users set `CCX_NPROC_EQUATION_SOLVER=1`: SPOOLES then runs on one
-   thread, and the rest of CalculiX keeps using `OMP_NUM_THREADS`. Checked with
-   the release build at `OMP_NUM_THREADS=4`: `beamf3` and `mass2` give the same
-   result on three runs each, byte-identical to plain 2.24.
+   **First decision (2026-11-23): `USE_MT` stays on**, documented as a known
+   behaviour, with `CCX_NPROC_EQUATION_SOLVER=1` for reproducible results.
+
+   **Closer look (2026-11-24).** The differences are not always small:
+   - macOS, release build, 4 threads, 5 runs each: `acou2` and `acou3` failed
+     in 5 of 5 runs, with the first eigenfrequency of `acou3` at 0 Hz instead
+     of 8.7 Hz and the first mode of `acou2` at 24.9 Hz instead of 10.6 Hz.
+     With 1 thread both passed in 5 of 5 runs.
+   - The November benchmark runs of the linear static NACA blade (fine mesh)
+     show multithreaded SPOOLES off by up to 1.1 % in the tip displacement on
+     macOS, 0.09 % on Linux and 0.02 % on Windows, while MUMPS, PARDISO,
+     Accelerate and single-threaded SPOOLES agree to about 1e-8
+     (`results/naca_blade/` in this repository). On the ultra-fine mesh,
+     multithreaded SPOOLES agreed to 6e-9.
+
+   Built single-threaded (`CCX_SPOOLES_MT=OFF`), all 6 `acou*` decks passed
+   5 of 5 runs at 4 threads on macOS, and the full Linux suite at 4 threads
+   gives 635 byte-identical decks and 7 CFD decks within tolerance (last row
+   of the table; the 7 are `coucylcent`, `couette1`, `couette2`, `couseg`,
+   `cousegcomp`, `poi2dturb`, `slant`, see finding 3). But single-threaded
+   SPOOLES is slow: on the ultra-fine NACA blade (715,968 equations, 6
+   threads, Linux) 773 s against 253 s multithreaded.
+
+   **Decision (2026-11-24): `USE_MT` stays on by default, with a warning.**
+   CMake prints a warning at configure time, and `INSTALL.md` lists the
+   observed differences. For reproducible results identical to 2.24, run with
+   `CCX_NPROC_EQUATION_SOLVER=1` or configure with `-DCCX_SPOOLES_MT=OFF`.
+   MUMPS, PARDISO and Accelerate are not affected.
 
 3. **Without `USE_MT`, 4 threads reproduce 2.24 in 635 decks byte for byte.**
    The other 7 (`couette1`, `couette2`, `couette5`, `couseg`, `cousegcomp`,
