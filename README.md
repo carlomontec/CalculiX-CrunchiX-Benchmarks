@@ -38,6 +38,8 @@ Fastest wall time per solver over all thread counts, in seconds. Follow the link
 
 | Date | Report | Result |
 |:---|:---|:---|
+| 2026-11-20 | [Merge of upstream CalculiX master (0787781..57a4e71) into the MultiSolver fork](upstream-merges/2026-11/REPORT.md) | Official test suite run before and after the merge; conflicts and their resolution listed. |
+| 2026-08-28 | [JSON export: reference files for the official test suite](json-export/2026-08_references/REPORT.md) | JSON reference files created for 619 of 638 decks; 19 decks failed and are listed in the report. |
 
 ### Studies
 

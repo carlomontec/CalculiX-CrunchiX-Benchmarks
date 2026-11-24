@@ -1,0 +1,23 @@
+{
+  "kind": "report",
+  "title": "JSON export: reference files for the official test suite",
+  "date": "2026-08-28",
+  "code": {
+    "repository": "https://github.com/carlomontec/CalculiX-CrunchiX-MultiSolver",
+    "ref": "main",
+    "commit": null,
+    "version": "2.23 base",
+    "note": "exact commit not recorded"
+  },
+  "machine": {
+    "label": "apple-m3_macos",
+    "cpu": "Apple M3 (4 performance + 4 efficiency cores)",
+    "cores": 8,
+    "ram_gb": 16,
+    "os": "macOS",
+    "compiler": null
+  },
+  "summary": "JSON reference files created for 619 of 638 decks; 19 decks failed and are listed in the report.",
+  "command": "python3 test_NewLib/generate_json_references.py",
+  "notes": null
+}

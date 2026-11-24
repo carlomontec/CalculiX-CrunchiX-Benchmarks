@@ -1,0 +1,23 @@
+{
+  "kind": "report",
+  "title": "Merge of upstream CalculiX master (0787781..57a4e71) into the MultiSolver fork",
+  "date": "2026-11-20",
+  "code": {
+    "repository": "https://github.com/carlomontec/CalculiX-CrunchiX-MultiSolver",
+    "ref": "main",
+    "commit": "da88f2f",
+    "version": "2.24 base",
+    "note": "merge commit"
+  },
+  "machine": {
+    "label": "apple-m3_macos",
+    "cpu": "Apple M3 (4 performance + 4 efficiency cores)",
+    "cores": 8,
+    "ram_gb": 16,
+    "os": "macOS",
+    "compiler": null
+  },
+  "summary": "Official test suite run before and after the merge; conflicts and their resolution listed.",
+  "command": "python3 test_NewLib/run_official_testsuite.py",
+  "notes": null
+}
