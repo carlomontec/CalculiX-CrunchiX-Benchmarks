@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-24T21:55:05Z",
+    "system_profile": {
+      "hostname": "ryzen5-5600_linux",
+      "os": "Linux",
+      "architecture": "x86_64",
+      "cpu_name": "AMD Ryzen 5 5600 6-Core Processor",
+      "total_cores": 12,
+      "p_cores": 12,
+      "total_ram_gb": 31.3
+    },
+    "case": "naca_blade",
+    "deck": "blade_static",
+    "discretization": "ultra_fine",
+    "nodes": 240505,
+    "elements": 55296,
+    "equations": 715968
+  },
+  "results": {
+    "SPOOLES": {
+      "6": {
+        "success": true,
+        "wall_time": 773.2033,
+        "measured_time": 773.5969,
+        "peak_rss_mb": 13645.72,
+        "equations": 715968,
+        "nodes": 240505,
+        "elements": 55296,
+        "total_effective_mass": {},
+        "fraction_of_totals": {},
+        "static_verification": {
+          "converged": true,
+          "tip_u1_mean": -1.8412634041568956,
+          "tip_u2_min": 5.1246402558,
+          "tip_u2_mean": 5.231126379342239,
+          "tip_u2_max": 5.351293874,
+          "tip_umag_max": 5.709799066659256
+        }
+      }
+    }
+  }
+}

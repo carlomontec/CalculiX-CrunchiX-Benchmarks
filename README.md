@@ -33,6 +33,7 @@ Fastest wall time per solver over all thread counts, in seconds. Follow the link
 
 | Date | Model | Equations | Machine | MUMPS | PARDISO | ACCELERATE | SPOOLES |
 |:---|:---|---:|:---|---:|---:|---:|---:|
+| 2026-11-24 | [naca_blade, ultra-fine](results/naca_blade/2026-11-24_ryzen5-5600_linux_ultra-fine_spooles-st/) | 715,968 | ryzen5-5600_linux |  |  |  | 773.2 |
 | 2026-11-24 | [naca_blade, ultra-fine](results/naca_blade/2026-11-24_ryzen5-5600_linux_ultra-fine/) | 715,968 | ryzen5-5600_linux | 52.6 | 59.5 |  | 252.6 |
 | 2026-11-21 | [naca_blade, fine](results/naca_blade/2026-11-21_ryzen5-5600_windows_fine/) | 632,316 | ryzen5-5600_windows | 56.0 | 70.4 |  | 198.0 |
 | 2026-11-21 | [naca_blade, fine](results/naca_blade/2026-11-21_ryzen5-5600_linux_fine/) | 632,316 | ryzen5-5600_linux | 47.3 | 48.3 |  | 186.7 |
